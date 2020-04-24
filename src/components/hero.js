@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
+import useSiteMetadata from "../hooks/use-site-metadata"
 
 const ImageBackground = styled(BackgroundImage)`
   background-position: top 10% center;
@@ -48,11 +49,12 @@ const Hero = () => {
       }
     }
   `)
+  const { title, description } = useSiteMetadata()
   return (
     <ImageBackground tag="section" fluid={image.sharp.fluid} fadeIn="soft">
       <Textbox>
-        <h1>My Blog Title</h1>
-        <p>some random tagline</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </Textbox>
     </ImageBackground>
   )

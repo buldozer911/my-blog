@@ -2,6 +2,7 @@ import React from "react"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
+import useSiteMetadata from "../hooks/use-site-metadata"
 
 const NavLink = styled(Link)`
   color: #222;
@@ -21,32 +22,34 @@ const NavLink = styled(Link)`
   }
 `
 
-const Header = () => (
-  <header
-    css={css`
-      background: #eee;
-      border-bottom: 1px solid #ddd;
-      display: flex;
-      justify-content: space-between;
-      padding: 0.5rem calc((100vw - 550px 0.5rem) / 2);
-    `}
-  >
-    <NavLink to="/" fontWeight="bold">
-      FEM Workshop
-    </NavLink>
-    <nav
+const Header = () => {
+  return (
+    <header
       css={css`
-        margin-top: 0;
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem calc((100vw - 550px 0.5rem) / 2);
       `}
     >
-      <NavLink to="/" activeClassName="current-page">
-        Home
+      <NavLink to="/" fontWeight="bold">
+        Welcome to my blog!
       </NavLink>
-      <NavLink to="/about" activeClassName="current-page">
-        About Us
-      </NavLink>
-    </nav>
-  </header>
-)
+      <nav
+        css={css`
+          margin-top: 0;
+        `}
+      >
+        <NavLink to="/" activeClassName="current-page">
+          Home
+        </NavLink>
+        <NavLink to="/about" activeClassName="current-page">
+          About me
+        </NavLink>
+      </nav>
+    </header>
+  )
+}
 
 export default Header

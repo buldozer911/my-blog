@@ -11,8 +11,7 @@ const HomePage = () => {
     <>
       <Hero />
       <Layout>
-        <h1> Home</h1>
-        <p className="strong"> Testing emotion</p>
+        <p></p>
         <h2>Read my Blog!</h2>
         {posts.map(post => (
           <PostPreview key={post.slug} post={post} />
